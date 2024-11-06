@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: black;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.red {
+  background-color: red;
+}
+.gridview {
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  place-items: center;
+}
+
+.layout-container {
+  @apply p-6 flex flex-col gap-8 items-center bg-[#F4F7FE];
+}
+
+.selected {
+  color: #0066ff;
+  position: relative;
+  transition: all 0.4s ease;
+  padding: 30px;
+}
+
+.selected::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #0066ff;
+  border-radius: 8px 8px 0 0;
+  width: 0;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+}
+
+.selected::after {
+  width: 100%;
+}
+#chat {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+/* Handle */
+
+/* feed related */
+.feed_border {
+  @apply border border-[#CCCCCC] rounded-md m-6 py-4 px-5;
+}
+
+.feed_filter_item {
+  @apply cursor-pointer flex flex-row font-bold gap-2 items-center;
+}
+
+/* Circular progress bar start */
+
+.card svg {
+  transform: rotate(-45deg);
+}
+
+.card svg circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #807e7e;
+  stroke-width: 3;
+}
+
+.card svg circle:last-of-type {
+  stroke-dasharray: 346px;
+  stroke-dashoffset: calc(346px - (346px * var(--percent)) / 100);
+}
+
+.card .number {
+  transform: translate(-50%, -50%);
+}
+
+.card svg circle:last-of-type {
+  stroke: black;
+  stroke-width: 5;
+}
+
+/* Circular progress bar end */
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+* {
+  margin-top: 2px;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.17rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 0.83rem;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 0.67rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: normal;
+}
+body {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+strong {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+em {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+ul,
+ol {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+li {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 8px;
+}
+
+blockquote {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+code {
+  font-size: 1rem;
+  font-family: monospace;
+}
+
+pre {
+  font-size: 1rem;
+  font-family: monospace;
+}
+
+table {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+th,
+td {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+caption {
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3d90d9;
+  height: 10%;
+}
